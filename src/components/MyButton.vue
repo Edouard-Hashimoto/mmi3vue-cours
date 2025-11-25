@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-  href?: string;
-  variant?: "default" | "outline";
-  size?: "default" | "small";
-}>();
+  href?: string
+  variant?: 'default' | 'outline'
+  size?: 'default' | 'small' | 'medium' | 'large'
+}>()
 </script>
 
 <template>
@@ -13,7 +13,9 @@ defineProps<{
     class="button"
     :class="{
       '-outline': variant === 'outline',
-      '-small': size === 'small'
+      '-small': size === 'small',
+      '-medium': size === 'medium',
+      '-large': size === 'large',
     }"
   >
     <slot />
@@ -24,7 +26,9 @@ defineProps<{
     class="button"
     :class="{
       '-outline': variant === 'outline',
-      '-small': size === 'small'
+      '-small': size === 'small',
+      '-medium': size === 'medium',
+      '-large': size === 'large',
     }"
   >
     <slot />
@@ -44,13 +48,10 @@ defineProps<{
   border-radius: rem(4);
   text-decoration: none;
   font-size: var(--font-size-base);
+  
 
   @include medium-up {
     padding: rem(15) rem(25);
-  }
-
-  @include small-only {
-    padding: rem(5) rem(10);
   }
 
   &:hover {
@@ -60,11 +61,25 @@ defineProps<{
 
   &.-small {
     padding: rem(5) rem(10);
+    font-size: var(--font-size-small);
+    margin-left: 20px;
+  }
+
+  &.-medium {
+    padding: rem(12) rem(22);
+    font-size: var(--font-size-base);
+    margin-left: 20px;
+  }
+
+  &.-large {
+    padding: rem(30) rem(80);
+    font-size: var(--font-size-large);
+    margin-left: 20px;
   }
 
   &.-outline {
     --button-color: var(--color-primary);
-    --button-bg-color: transparent;
+    --button-bg-color: transparent;margin-left: 20px;
 
     &:hover {
       --button-color: var(--color-text);

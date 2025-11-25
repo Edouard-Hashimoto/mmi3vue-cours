@@ -26,6 +26,8 @@ import MyTitle from './components/MyTitle.vue'
         <MyButton class="-danger">Danger</MyButton>
         <MyButton class="-ghost">Ghost</MyButton>
         <MyButton size="small">Small</MyButton>
+        <MyButton size="medium">Medium</MyButton>
+        <MyButton size="large">Large</MyButton>
       </div>
 
       <div>

@@ -9,7 +9,7 @@ const onMenuClick = () => {
 }
 </script>
 <template>
-  <MyButton @click="onMenuClick">{{ isNavOpen ? 'Close' : 'Menu' }}</MyButton>
+  <MyButton class="-menu" @click="onMenuClick">{{ isNavOpen ? 'Close' : 'Menu' }}</MyButton>
   <nav v-if="isNavOpen">
     <ul>
       <li>link 1</li>

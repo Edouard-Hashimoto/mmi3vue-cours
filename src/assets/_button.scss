@@ -1,3 +1,5 @@
+@use './foundations/functions' as *;
+
 .button {
   /* VARIANTES */
   &.-secondary {
@@ -33,9 +35,37 @@
     }
   }
 
+  &.-menu,
+  &.-submit {
+    --button-bg-color: var(--color-success);
+    --button-border-color: var(--color-success);
+    --button-color: #fff;
+
+    &:hover {
+      --button-bg-color: transparent;
+      --button-color: var(--color-success);
+    }
+  }
+
+  /* TAILLES */
+  &.-small {
+    padding: rem(5) rem(10);
+    font-size: var(--font-size-small);
+  }
+
+  &.-medium {
+    padding: rem(12) rem(22);
+    font-size: var(--font-size-base);
+  }
+
+  &.-large {
+    padding: rem(65) rem(100);
+    font-size: var(--font-size-large);
+  }
+
   /* FORMES */
   &.-rounded {
-    border-radius: 50px;
+    border-radius: 60px;
   }
 
   &.-block {
