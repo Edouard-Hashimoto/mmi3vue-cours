@@ -1,21 +1,19 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 defineProps<{
   as: 'h1' | 'h2' | 'h3'
+  size?: 'subtitle' | 'texte' | 'texte2' 
 }>()
 </script>
 
 <template>
-  <component :is="as" class="title"><slot></slot></component>
+  <component
+    :is="as"
+    class="title"
+    :class="[
+      size ? `-${size}` : '',
+      $attrs.class   /* permet de passer titreP ou autres classes supplémentaires */
+    ]"
+  >
+    <slot />
+  </component>
 </template>
-
-<style lang="scss">
-.title {
-  font-weight: bold;
-  font-size: rem(50);
-  line-height: rem(50);
-  .-small {
-    font-size: rem(20);
-    line-height: rem(20);
-  }
-}
-</style>
